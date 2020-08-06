@@ -12,7 +12,11 @@ private int balance;
     }
 
     public void  deposit(int amount) {
-        balance += amount ;
+
+        if (amount > 0) {
+            balance += amount ;
+        }
+
     }
 
 }

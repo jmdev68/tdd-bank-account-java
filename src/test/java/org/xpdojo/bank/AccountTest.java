@@ -31,5 +31,14 @@ public class AccountTest {
     }
 
 
+    @Test
+    public void depositAmountShallNotBeNegative() {
+        Account b = new Account();
+        b.deposit(-10);
+
+        assertThat(b.getBalance()).isEqualTo(0);
+    }
+
+
 
 }
