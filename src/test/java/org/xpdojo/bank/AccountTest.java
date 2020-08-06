@@ -11,13 +11,25 @@ public class AccountTest {
     public void checkNewAccountBalanceIsZero() {
         Account a = new Account();
         assertThat(a.getBalance()).isZero();
-
     }
-
 
     @Test
-	@Disabled
     public void depositAnAmountToIncreaseTheBalance() {
-        assertThat("your first test").isBlank();
+        Account b = new Account();
+        b.deposit(10);
+
+        assertThat(b.getBalance()).isEqualTo(10);
     }
+
+    @Test
+    public void depositMultipleAmountsToIncreaseTheBalance() {
+        Account b = new Account();
+        b.deposit(10);
+        b.deposit(20);
+
+        assertThat(b.getBalance()).isEqualTo(30);
+    }
+
+
+
 }
