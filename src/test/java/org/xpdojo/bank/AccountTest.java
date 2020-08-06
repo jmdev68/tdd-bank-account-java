@@ -38,6 +38,14 @@ public class AccountTest {
     }
 
     @Test
+    public void withdrawFromAccountWithSufficientFunds() {
+        a.deposit(100);
+        a.withdraw(10);
+        assertThat(a.getBalance()).isEqualTo(90);
+    }
+
+
+    @Test
     public void withdrawFromEmptyAccountNotAllowed() {
         try {
             a.withdraw(10);

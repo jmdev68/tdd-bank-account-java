@@ -12,14 +12,16 @@ private int balance;
     }
 
     public void  deposit(int amount) {
-
         if (amount > 0) {
             balance += amount ;
         }
-
     }
 
     public void withdraw(int amount) {
-        throw new RuntimeException("Cannot withdraw - no overdraft available");
+        if ((balance - amount) < 0) {
+            throw new RuntimeException("Cannot withdraw - no overdraft available");
+        } else {
+            balance -= amount;
+        }
     }
 }
