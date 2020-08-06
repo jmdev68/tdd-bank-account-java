@@ -19,4 +19,7 @@ private int balance;
 
     }
 
+    public void withdraw(int amount) {
+        throw new RuntimeException("Cannot withdraw - no overdraft available");
+    }
 }

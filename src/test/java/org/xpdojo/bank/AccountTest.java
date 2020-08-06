@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.fail;
 
 public class AccountTest {
 
@@ -29,7 +30,6 @@ public class AccountTest {
         assertThat(a.getBalance()).isEqualTo(30);
     }
 
-
     @Test
     public void depositAmountShallNotBeNegative() {
         a.deposit(-10);
@@ -37,7 +37,14 @@ public class AccountTest {
         assertThat(a.getBalance()).isEqualTo(0);
     }
 
-
+    @Test
+    public void withdrawFromEmptyAccountNotAllowed() {
+        try {
+            a.withdraw(10);
+            fail("Expected Exception");
+        } catch (Exception e) {
+        }
+    }
 
 
 }
